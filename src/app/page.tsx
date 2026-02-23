@@ -30,11 +30,11 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/hero-background.jpg" 
-            alt="Bella Africa Team" 
+            src="/hero-background-new.jpg" 
+            alt="Bella Africa Community Event" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/70 to-dark/50" />
+          <div className="absolute inset-0 bg-dark/50" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
@@ -50,7 +50,7 @@ export default function HomePage() {
                   Transforming Communities.
                 </span>
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed font-medium">
                 Bella Africa supports women entrepreneurs across Africa with the
                 resources, training, and opportunities they need to build
                 thriving businesses and stronger families.

@@ -39,14 +39,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
-              <Heart className="w-5 h-5 text-white fill-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-dark">
-                Bella<span className="text-primary">Africa</span>
-              </span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Bella Africa" 
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}
