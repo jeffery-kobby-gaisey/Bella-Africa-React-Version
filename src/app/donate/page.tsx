@@ -79,12 +79,6 @@ export default function DonatePage() {
                 <p className="text-text-light text-sm mb-4">
                   Donate securely using PayPal
                 </p>
-                <div className="bg-white rounded-lg p-4 mb-4 border border-warm-gray">
-                  <p className="text-xs text-text-light mb-1">PayPal ID</p>
-                  <p className="font-mono text-sm font-bold text-dark break-all">
-                    DPHU82NS86SSL
-                  </p>
-                </div>
                 <a
                   href="https://www.paypal.com/donate/?hosted_button_id=DPHU82NS86SSL"
                   target="_blank"

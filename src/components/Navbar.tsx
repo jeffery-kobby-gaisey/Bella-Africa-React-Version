@@ -38,12 +38,15 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <img 
               src="/logo.png" 
               alt="Bella Africa" 
               className="h-12 w-auto object-contain"
             />
+            <span className="text-xl font-bold tracking-tight text-dark">
+              Bella <span className="text-primary">Africa</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}

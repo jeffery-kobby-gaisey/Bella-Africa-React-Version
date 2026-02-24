@@ -46,7 +46,7 @@ export default function HomePage() {
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                 Empowering Women.
-                <span className="block mt-2 gradient-text">
+                <span className="block mt-2 text-white">
                   Transforming Communities.
                 </span>
               </h1>
