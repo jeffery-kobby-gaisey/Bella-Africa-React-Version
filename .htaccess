@@ -1,0 +1,29 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Prevent caching
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+</IfModule>
+
+# Redirect to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle client-side routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
+
+# Compress files
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Set proper MIME types
+AddType image/webp .webp
+AddType image/svg+xml .svg
+AddType application/javascript .js
+AddType text/css .css
