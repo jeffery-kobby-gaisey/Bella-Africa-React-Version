@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Heart,
   CreditCard,
@@ -21,10 +21,28 @@ const impactItems = [
   { amount: "$1,000", impact: "Launches a women's business program" },
 ];
 
+const backgroundImages = [
+  "/gallery/sewing-1.jpg",
+  "/gallery/salt 1.jpg",
+  "/gallery/gari 1.jpg",
+  "/hero-background-new.jpg",
+];
+
 export default function DonatePage() {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,9 +54,25 @@ export default function DonatePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-primary overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_var(--color-secondary)_0%,_transparent_60%)]" />
-        <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        {/* Background Slideshow */}
+        <div className="absolute inset-0">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Background ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-dark/60" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/80 text-sm mb-6 border border-white/10">
@@ -75,9 +109,9 @@ export default function DonatePage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-2">PayPal</h3>
+                <h3 className="text-xl font-bold text-dark mb-2">PayPal and Credit Card</h3>
                 <p className="text-text-light text-sm mb-4">
-                  Donate securely using PayPal
+                  Donate securely using PayPal or Credit Card
                 </p>
                 <a
                   href="https://www.paypal.com/donate/?hosted_button_id=DPHU82NS86SSL"
@@ -85,7 +119,7 @@ export default function DonatePage() {
                   rel="noopener noreferrer"
                   className="block w-full text-center px-4 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors"
                 >
-                  Donate via PayPal
+                  Donate via PayPal or Credit Card
                 </a>
               </div>
             </AnimatedSection>

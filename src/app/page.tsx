@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Heart,
@@ -22,18 +25,45 @@ import {
 import AnimatedSection from "@/components/AnimatedSection";
 import ImpactCounter from "@/components/ImpactCounter";
 
+const backgroundImages = [
+  "/gallery/sewing-1.jpg",
+  "/gallery/salt 1.jpg",
+  "/gallery/gari 1.jpg",
+  "/hero-background-new.jpg",
+];
+
 export default function HomePage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       {/* ========== HERO ========== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Slideshow */}
         <div className="absolute inset-0">
-          <img 
-            src="/hero-background-new.jpg" 
-            alt="Bella Africa Community Event" 
-            className="w-full h-full object-cover"
-          />
+          {backgroundImages.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Background ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
           <div className="absolute inset-0 bg-dark/50" />
         </div>
 
@@ -94,7 +124,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
             <AnimatedSection delay={0.1}>
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold text-primary">500+</p>
+                <p className="text-4xl md:text-5xl font-bold text-primary">5000+</p>
                 <p className="text-sm md:text-base text-text-light mt-2">Lives Transformed</p>
               </div>
             </AnimatedSection>
@@ -106,7 +136,7 @@ export default function HomePage() {
             </AnimatedSection>
             <AnimatedSection delay={0.3}>
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold text-primary">3+</p>
+                <p className="text-4xl md:text-5xl font-bold text-primary">4+</p>
                 <p className="text-sm md:text-base text-text-light mt-2">Active Projects</p>
               </div>
             </AnimatedSection>
@@ -587,9 +617,9 @@ export default function HomePage() {
                 title: "Proven Impact",
                 desc: "3+ years of experience with a track record of successful projects transforming hundreds of lives.",
                 highlights: [
-                  "500+ lives transformed",
+                  "5000+ lives transformed",
                   "300+ women empowered",
-                  "3 active projects",
+                  "4 active projects",
                 ],
               },
               {
