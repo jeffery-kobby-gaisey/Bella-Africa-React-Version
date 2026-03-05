@@ -18,6 +18,7 @@ const articles = [
     source: "The Voice of Africa",
     date: "March 4, 2026",
     url: "https://thevoiceofafrica.com/2026/03/04/sewing-dignity-building-futures-bella-africa-supports-future-of-africas-norviwo-clothing-studio/",
+    image: "/press/march-article.jpg",
   },
   {
     title: "Making Africa More Beautiful, One Woman at a Time",
@@ -25,6 +26,7 @@ const articles = [
     source: "The Voice of Africa",
     date: "January 12, 2026",
     url: "https://thevoiceofafrica.com/2026/01/12/making-africa-more-beautiful-one-woman-at-a-time/",
+    image: "/press/january-article.jpg",
   },
 ];
 
@@ -88,14 +90,21 @@ export default function PressPage() {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-white rounded-2xl p-8 lg:p-10 border border-warm-gray hover:shadow-xl transition-all group hover:-translate-y-1"
+                  className="block bg-white rounded-2xl overflow-hidden border border-warm-gray hover:shadow-xl transition-all group hover:-translate-y-1"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <Globe className="w-8 h-8 text-primary" />
+                  <div className="grid md:grid-cols-5 gap-0">
+                    {/* Article Image */}
+                    <div className="md:col-span-2 relative h-64 md:h-auto bg-warm-gray overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-dark/20 to-transparent md:bg-gradient-to-r" />
                     </div>
                     
-                    <div className="flex-1">
+                    {/* Article Content */}
+                    <div className="md:col-span-3 p-8 lg:p-10">
                       <div className="flex items-center gap-3 mb-3">
                         <p className="text-sm text-primary font-semibold">
                           {article.source}
