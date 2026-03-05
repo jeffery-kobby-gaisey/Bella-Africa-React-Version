@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Industrial Machine",
     desc: "We proudly supported Future Of Africa with industrial machines to enhance vocational training and promote sustainable livelihoods.",
-    videoUrl: "",
+    videoUrl: "https://www.youtube.com/watch?v=PuGX8TnjYug",
     image: "/gallery/Industrial-sewing machine 1.jpg",
     tag: "Vocational Training",
     icon: Cog,

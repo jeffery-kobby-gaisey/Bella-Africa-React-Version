@@ -597,6 +597,85 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ========== PRESS & MEDIA ========== */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+              In The News
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-dark">
+              Press & Media Coverage
+            </h2>
+            <p className="mt-6 text-text-light leading-relaxed">
+              Read about our impact and initiatives featured in the media
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <AnimatedSection delay={0.1}>
+              <a
+                href="https://thevoiceofafrica.com/2026/03/04/sewing-dignity-building-futures-bella-africa-supports-future-of-africas-norviwo-clothing-studio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-warm-white rounded-2xl p-8 border border-warm-gray hover:shadow-xl transition-all group hover:-translate-y-1"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-primary font-semibold mb-2">
+                      The Voice of Africa • March 4, 2026
+                    </p>
+                    <h3 className="text-lg font-bold text-dark mb-3 group-hover:text-primary transition-colors">
+                      Sewing Dignity, Building Futures: Bella Africa Supports Future of Africa's Norviwo Clothing Studio
+                    </h3>
+                    <p className="text-sm text-text-light leading-relaxed mb-4">
+                      Discover how Bella Africa is empowering women through vocational training and industrial sewing machines.
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold">
+                      Read Article
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <a
+                href="https://thevoiceofafrica.com/2026/01/12/making-africa-more-beautiful-one-woman-at-a-time/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-warm-white rounded-2xl p-8 border border-warm-gray hover:shadow-xl transition-all group hover:-translate-y-1"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-primary font-semibold mb-2">
+                      The Voice of Africa • January 12, 2026
+                    </p>
+                    <h3 className="text-lg font-bold text-dark mb-3 group-hover:text-primary transition-colors">
+                      Making Africa More Beautiful, One Woman at a Time
+                    </h3>
+                    <p className="text-sm text-text-light leading-relaxed mb-4">
+                      Learn about Bella Africa's mission to empower women and transform communities across Africa.
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold">
+                      Read Article
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ========== WHY SUPPORT ========== */}
       <section className="py-24 lg:py-32 bg-warm-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
