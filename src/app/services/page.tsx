@@ -154,7 +154,11 @@ export default function ServicesPage() {
               <AnimatedSection key={service.title} delay={i * 0.1}>
                 <div className="group bg-white rounded-2xl p-8 shadow-sm border border-warm-gray hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-${service.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform ${
+                      service.color === 'primary' ? 'bg-primary' :
+                      service.color === 'secondary' ? 'bg-secondary' :
+                      service.color === 'accent' ? 'bg-accent' : 'bg-primary'
+                    }`}
                   >
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
