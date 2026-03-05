@@ -100,7 +100,6 @@ export default function PressPage() {
                         alt={article.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-dark/20 to-transparent md:bg-gradient-to-r" />
                     </div>
                     
                     {/* Article Content */}
