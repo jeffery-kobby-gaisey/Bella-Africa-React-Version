@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import {
   Stethoscope,
   Home as HomeIcon,
@@ -10,11 +13,12 @@ import {
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export const metadata = {
-  title: "Services — Bella Africa",
-  description:
-    "Explore Bella Africa's programs: medical assistance, shelter support, funding, education, and more.",
-};
+const backgroundImages = [
+  "/gallery/sewing-1.jpg",
+  "/gallery/salt 1.jpg",
+  "/gallery/gari 1.jpg",
+  "/hero-background-new.jpg",
+];
 
 const services = [
   {
@@ -92,11 +96,40 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-dark overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-accent" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        {/* Background Slideshow */}
+        <div className="absolute inset-0">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Background ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-dark/60" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">
